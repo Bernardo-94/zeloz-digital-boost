@@ -257,12 +257,12 @@ function About() {
 
 /* ---------------- Services ---------------- */
 const services = [
-  { icon: Globe, title: "Site Institucional", desc: "Presença profissional que transmite autoridade desde o primeiro clique. Ideal para conquistar a confiança do paciente, cliente ou consumidor." },
-  { icon: Rocket, title: "Landing Page de Conversão", desc: "Página única e estratégica, focada em transformar visitantes em agendamentos diretos via WhatsApp." },
-  { icon: Search, title: "SEO Local", desc: "Apareça quando alguém procurar pelos seus serviços na sua cidade. Otimização técnica e de conteúdo para o Google." },
-  { icon: Smartphone, title: "Mobile First", desc: "Mais de 70% do seu cliente acessa pelo celular. Garantimos uma experiência impecável em qualquer tela." },
-  { icon: Zap, title: "Performance Extrema", desc: "Sites que carregam em milissegundos. Velocidade gera confiança e melhora seu posicionamento no Google." },
-  { icon: ShieldCheck, title: "Suporte Pós-Entrega", desc: "Você não fica sozinho depois do lançamento. Manutenção, atualizações e ajustes com atendimento humano." },
+  { icon: Globe, title: "Site Institucional", desc: "Presença profissional que transmite autoridade desde o primeiro clique. Ideal para conquistar a confiança do paciente, cliente ou consumidor.", cta: "Fale com um profissional" },
+  { icon: Rocket, title: "Landing Page de Conversão", desc: "Página única e estratégica, focada em transformar visitantes em agendamentos diretos via WhatsApp.", cta: "Chama no zap" },
+  { icon: Search, title: "SEO Local", desc: "Apareça quando alguém procurar pelos seus serviços na sua cidade. Otimização técnica e de conteúdo para o Google.", cta: "Solicite um orçamento" },
+  { icon: Smartphone, title: "Mobile First", desc: "Mais de 70% do seu cliente acessa pelo celular. Garantimos uma experiência impecável em qualquer tela.", cta: "Entre em contato" },
+  { icon: Zap, title: "Performance Extrema", desc: "Sites que carregam em milissegundos. Velocidade gera confiança e melhora seu posicionamento no Google.", cta: "Conte-nos a sua ideia" },
+  { icon: ShieldCheck, title: "Suporte Pós-Entrega", desc: "Você não fica sozinho depois do lançamento. Manutenção, atualizações e ajustes com atendimento humano.", cta: "Fale com um profissional" },
 ];
 
 function Services() {
@@ -280,7 +280,7 @@ function Services() {
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ icon: Icon, title, desc }) => (
+          {services.map(({ icon: Icon, title, desc, cta }) => (
             <article key={title} className="group rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-[var(--brand-blue)]/60 hover:shadow-[var(--shadow-glow)]">
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-[var(--brand-blue)]/15 text-[var(--brand-blue)] transition group-hover:bg-[var(--brand-blue)] group-hover:text-white">
                 <Icon className="h-6 w-6" />
@@ -289,7 +289,7 @@ function Services() {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
               <a href={waLink(`Olá! Quero saber mais sobre: ${title}`)} target="_blank" rel="noopener noreferrer"
                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-blue)] hover:gap-2.5 transition-all">
-                Ver Projetos <ArrowRight className="h-4 w-4" />
+                {cta} <ArrowRight className="h-4 w-4" />
               </a>
             </article>
           ))}
