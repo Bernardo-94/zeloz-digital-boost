@@ -63,25 +63,32 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  /* Dark theme by default — Zeloz Devs brand */
+  --background: oklch(0.16 0.03 264);
+  --foreground: oklch(0.98 0.003 247);
+  --card: oklch(0.21 0.035 265);
+  --card-foreground: oklch(0.98 0.003 247);
+  --popover: oklch(0.21 0.035 265);
+  --popover-foreground: oklch(0.98 0.003 247);
+  --primary: oklch(0.62 0.19 256); /* #3B82F6 used as primary action */
+  --primary-foreground: oklch(0.98 0.003 247);
+  --secondary: oklch(0.27 0.04 260);
+  --secondary-foreground: oklch(0.98 0.003 247);
+  --muted: oklch(0.27 0.04 260);
+  --muted-foreground: oklch(0.72 0.02 256);
+  --accent: oklch(0.62 0.19 256);
+  --accent-foreground: oklch(0.98 0.003 247);
+  --destructive: oklch(0.65 0.22 27);
+  --destructive-foreground: oklch(0.98 0.003 247);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.62 0.19 256);
+  --brand-dark: oklch(0.21 0.04 264); /* #0F172A */
+  --brand-blue: oklch(0.62 0.19 256); /* #3B82F6 */
+  --gradient-hero: linear-gradient(135deg, oklch(0.16 0.03 264) 0%, oklch(0.21 0.04 264) 50%, oklch(0.28 0.08 260) 100%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.62 0.19 256), oklch(0.5 0.2 260));
+  --shadow-glow: 0 20px 60px -20px oklch(0.62 0.19 256 / 0.45);
+  --shadow-card: 0 10px 40px -10px oklch(0 0 0 / 0.5);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +147,23 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
   }
 }
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-fade-in-up { animation: fade-in-up 0.7s ease-out both; }
+.animate-float { animation: float 3s ease-in-out infinite; }
