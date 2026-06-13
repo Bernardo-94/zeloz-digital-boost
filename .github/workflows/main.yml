@@ -8,49 +8,34 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22  # Mudei para 22 (projeto requer >=22.12.0)
+          node-version: 20
 
       - name: Instalar dependências
         run: npm ci --legacy-peer-deps || npm install --legacy-peer-deps
 
-      - name: Build do projeto
-        run: npm run build
+      - name: Instalar react-is
+        run: npm install react-is --legacy-peer-deps
+
+      - run: npm run build
 
       - name: Detectar diretório de build
         run: |
-          # Para TanStack Start, os arquivos estáticos ficam em dist/client
-          if [ -d "dist/client" ]; then
-            echo "BUILD_DIR=dist/client" >> $GITHUB_ENV
-            echo "Usando dist/client (TanStack Start)"
-          elif [ -d "dist" ]; then
-            echo "BUILD_DIR=dist" >> $GITHUB_ENV
-            echo "Usando dist (build padrão)"
-          elif [ -d "out" ]; then
-            echo "BUILD_DIR=out" >> $GITHUB_ENV
-            echo "Usando out"
-          else
-            echo "ERRO: Nenhuma pasta de build encontrada"
-            ls -la
-            exit 1
-          fi
+          if [ -d "dist" ]; then echo "BUILD_DIR=dist" >> $GITHUB_ENV
+          elif [ -d "out" ]; then echo "BUILD_DIR=out" >> $GITHUB_ENV
+          else echo "ERRO: dist/ ou out/ não encontrado" && exit 1; fi
 
       - name: Validar build
         run: |
-          echo "Conteúdo da pasta $BUILD_DIR:"
-          ls -la $BUILD_DIR/
-          
-          # Verifica se existe index.html
-          if [ -f "$BUILD_DIR/index.html" ]; then
-            echo "✅ index.html encontrado"
-          else
-            echo "❌ ERRO: index.html não encontrado em $BUILD_DIR"
-            exit 1
+          test -f "$BUILD_DIR/index.html" || (echo "ERRO: index.html não encontrado" && exit 1)
+          grep -qE 'src="/src/|src="\./src/|href="/src/' "$BUILD_DIR/index.html" && echo "ERRO: aponta para /src (source, não build)" && exit 1
+          if [ "$BUILD_DIR" = "dist" ]; then
+            test -d "$BUILD_DIR/assets" || (echo "ERRO: dist/assets não encontrado" && exit 1)
+            grep -q 'src="/assets/' "$BUILD_DIR/index.html" && echo "ERRO: assets absoluto, configure base: './'" && exit 1
           fi
-          
           echo "Build válido: $BUILD_DIR"
 
       - name: Deploy via FTP
@@ -69,4 +54,3 @@ jobs:
             **/.github/**
             **/node_modules/**
             **/*.map
-            **/server/**  # Exclui arquivos do backend (não necessários para site estático)
