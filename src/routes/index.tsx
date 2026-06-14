@@ -62,8 +62,7 @@ function Navbar() {
     <header className={`fixed top-0 z-50 w-full transition-all ${scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent"}`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-lg bg-[var(--brand-blue)] font-black text-white">Z</div>
-          <span className="text-lg font-bold tracking-tight">Zeloz Devs</span>
+          <img src={zelozLogo.url} alt="Zeloz Devs" className="h-10 w-auto" />
         </a>
         <ul className="hidden items-center gap-8 lg:flex">
           {links.map(([l, h]) => (
