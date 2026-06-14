@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import {
   ArrowRight, Check, X, Star, Globe, Rocket, Search, Smartphone,
   ShieldCheck, Zap, MessageCircle, Mail, Instagram, Clock, MapPin,
-  ChevronLeft, ChevronRight, Quote, Sparkles,
+  ChevronLeft, ChevronRight, Quote, Sparkles, ExternalLink,
 } from "lucide-react";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
@@ -382,10 +382,10 @@ function Process() {
 
 /* ---------------- Testimonials ---------------- */
 const testimonials = [
-  { name: "Dra. Camila Souza", role: "Dermatologista", text: "Em duas semanas após o lançamento meus agendamentos online dobraram. Recebi diversos elogios pela apresentação profissional do site." },
-  { name: "Rafael Lima", role: "Advogado Tributarista", text: "O atendimento foi consultivo do início ao fim. Sentia que estavam realmente preocupados com meu posicionamento — não só em entregar um site genérico." },
-  { name: "Pedro Almeida", role: "Proprietário, Barbearia Norte", text: "Investimento justo e retorno imediato. Hoje meus clientes me encontram pelo Google e marcam direto pelo WhatsApp." },
-  { name: "Marcela Tavares", role: "Contadora", text: "Eu tinha receio da complexidade. A Zeloz cuidou de tudo, eu só precisei aprovar. Resultado: autoridade na cidade e novos contatos toda semana." },
+  { name: "Dra. Camila Souza", role: "Dermatologista", text: "Em duas semanas após o lançamento meus agendamentos online dobraram. Recebi diversos elogios pela apresentação profissional do site.", url: "#" },
+  { name: "Rafael Lima", role: "Advogado Tributarista", text: "O atendimento foi consultivo do início ao fim. Sentia que estavam realmente preocupados com meu posicionamento — não só em entregar um site genérico.", url: "#" },
+  { name: "Pedro Almeida", role: "Proprietário, Barbearia Norte", text: "Investimento justo e retorno imediato. Hoje meus clientes me encontram pelo Google e marcam direto pelo WhatsApp.", url: "#" },
+  { name: "Marcela Tavares", role: "Contadora", text: "Eu tinha receio da complexidade. A Zeloz cuidou de tudo, eu só precisei aprovar. Resultado: autoridade na cidade e novos contatos toda semana.", url: "#" },
 ];
 
 function Testimonials() {
@@ -414,6 +414,12 @@ function Testimonials() {
             <div className="flex gap-0.5 text-[var(--brand-blue)]">
               {[...Array(5)].map((_, k) => <Star key={k} className="h-4 w-4 fill-current" />)}
             </div>
+            {t.url && (
+              <a href={t.url} target="_blank" rel="noopener noreferrer"
+                 className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-[var(--brand-blue)]/30 bg-[var(--brand-blue)]/5 px-4 py-2 text-sm font-semibold text-[var(--brand-blue)] transition hover:bg-[var(--brand-blue)]/10">
+                Visitar site <ExternalLink className="h-4 w-4" />
+              </a>
+            )}
           </div>
 
           <div className="mt-10 flex items-center justify-center gap-4">
