@@ -9,7 +9,7 @@ import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
 import teamImg from "@/assets/team.jpg";
-import zelozLogo from "@/assets/zeloz-logo.png.asset.json";
+import zelozLogo from "@/assets/width_1209.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,7 +63,7 @@ function Navbar() {
     <header className={`fixed top-0 z-50 w-full transition-all ${scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent"}`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-center gap-2">
-          <img src={zelozLogo.url} alt="Zeloz Devs" className="h-10 w-auto" />
+          <img src={zelozLogo} alt="Zeloz Devs" className="h-10 w-auto" />
         </a>
         <ul className="hidden items-center gap-8 lg:flex">
           {links.map(([l, h]) => (
@@ -71,14 +71,14 @@ function Navbar() {
           ))}
         </ul>
         <a href={waLink("Olá! Gostaria de solicitar um orçamento.")} target="_blank" rel="noopener noreferrer"
-           className="hidden rounded-lg bg-[var(--brand-blue)] px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:brightness-110 lg:inline-flex">
+          className="hidden rounded-lg bg-[var(--brand-blue)] px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:brightness-110 lg:inline-flex">
           Solicitar Orçamento
         </a>
         <button onClick={() => setOpen(v => !v)} aria-label="Abrir menu" className="lg:hidden">
           <div className="flex h-9 w-9 flex-col items-center justify-center gap-1.5">
-            <span className={`h-0.5 w-6 bg-foreground transition ${open ? "translate-y-2 rotate-45" : ""}`}/>
-            <span className={`h-0.5 w-6 bg-foreground transition ${open ? "opacity-0" : ""}`}/>
-            <span className={`h-0.5 w-6 bg-foreground transition ${open ? "-translate-y-2 -rotate-45" : ""}`}/>
+            <span className={`h-0.5 w-6 bg-foreground transition ${open ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`h-0.5 w-6 bg-foreground transition ${open ? "opacity-0" : ""}`} />
+            <span className={`h-0.5 w-6 bg-foreground transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
           </div>
         </button>
       </nav>
@@ -90,7 +90,7 @@ function Navbar() {
             ))}
             <li>
               <a href={waLink("Olá! Gostaria de solicitar um orçamento.")} target="_blank" rel="noopener noreferrer"
-                 className="mt-2 block rounded-lg bg-[var(--brand-blue)] px-4 py-2.5 text-center text-sm font-semibold text-white">
+                className="mt-2 block rounded-lg bg-[var(--brand-blue)] px-4 py-2.5 text-center text-sm font-semibold text-white">
                 Solicitar Orçamento
               </a>
             </li>
@@ -148,17 +148,17 @@ function Hero() {
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">{s.sub}</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href={waLink()} target="_blank" rel="noopener noreferrer"
-               className="group inline-flex items-center gap-2 rounded-xl bg-[#0F172A] px-7 py-4 text-base font-semibold text-white shadow-[var(--shadow-glow)] ring-1 ring-white/10 transition hover:scale-[1.02]">
+              className="group inline-flex items-center gap-2 rounded-xl bg-[#0F172A] px-7 py-4 text-base font-semibold text-white shadow-[var(--shadow-glow)] ring-1 ring-white/10 transition hover:scale-[1.02]">
               Falar com Especialista
               <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
             </a>
             <a href="#servicos"
-               className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-7 py-4 text-base font-semibold text-foreground backdrop-blur transition hover:bg-card">
+              className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-7 py-4 text-base font-semibold text-foreground backdrop-blur transition hover:bg-card">
               Ver Projetos
             </a>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2"><Check className="h-4 w-4 text-[var(--brand-blue)]" /> Entrega em até 2 dias</div>
+            <div className="flex items-center gap-2"><Check className="h-4 w-4 text-[var(--brand-blue)]" /> Entrega em até 7 dias</div>
             <div className="flex items-center gap-2"><Check className="h-4 w-4 text-[var(--brand-blue)]" /> Suporte pós-entrega</div>
             <div className="flex items-center gap-2"><Check className="h-4 w-4 text-[var(--brand-blue)]" /> Otimizado para Google</div>
           </div>
@@ -167,8 +167,8 @@ function Hero() {
         <div className="relative">
           <div className="absolute -inset-4 rounded-3xl bg-[var(--brand-blue)] opacity-20 blur-2xl" />
           <img key={s.img} src={s.img} alt={s.eyebrow}
-               width={1536} height={1024}
-               className="relative rounded-3xl border border-border shadow-2xl animate-fade-in-up" />
+            width={1536} height={1024}
+            className="relative rounded-3xl border border-border shadow-2xl animate-fade-in-up" />
         </div>
       </div>
 
@@ -177,16 +177,16 @@ function Hero() {
         <div className="flex gap-2">
           {slides.map((_, idx) => (
             <button key={idx} onClick={() => setI(idx)} aria-label={`Slide ${idx + 1}`}
-                    className={`h-1.5 rounded-full transition-all ${i === idx ? "w-10 bg-[var(--brand-blue)]" : "w-5 bg-muted"}`}/>
+              className={`h-1.5 rounded-full transition-all ${i === idx ? "w-10 bg-[var(--brand-blue)]" : "w-5 bg-muted"}`} />
           ))}
         </div>
         <div className="flex gap-2">
           <button onClick={() => go(-1)} aria-label="Slide anterior"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card/60 backdrop-blur transition hover:bg-card">
+            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card/60 backdrop-blur transition hover:bg-card">
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button onClick={() => go(1)} aria-label="Próximo slide"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card/60 backdrop-blur transition hover:bg-card">
+            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card/60 backdrop-blur transition hover:bg-card">
             <ChevronRight className="h-5 w-5" />
           </button>
         </div>
@@ -234,7 +234,7 @@ function About() {
             </div>
 
             <img src={teamImg} alt="Equipe Zeloz Devs" loading="lazy" width={1280} height={960}
-                 className="mt-10 rounded-2xl border border-border" />
+              className="mt-10 rounded-2xl border border-border" />
           </div>
 
           <ol className="relative space-y-8 border-l border-border pl-8">
@@ -288,7 +288,7 @@ function Services() {
               <h3 className="mt-5 text-xl font-bold">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
               <a href={waLink(`Olá! Quero saber mais sobre: ${title}`)} target="_blank" rel="noopener noreferrer"
-                 className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-blue)] hover:gap-2.5 transition-all">
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-blue)] hover:gap-2.5 transition-all">
                 {cta} <ArrowRight className="h-4 w-4" />
               </a>
             </article>
@@ -302,7 +302,7 @@ function Services() {
 /* ---------------- Differentials (comparison) ---------------- */
 const rows = [
   ["Atendimento direto com o desenvolvedor", true, false],
-  ["Entrega em até 2 dias úteis", true, false],
+  ["Entrega em até 7 dias úteis", true, false],
   ["Foco em conversão e autoridade", true, false],
   ["Investimento acessível, sem mensalidade obrigatória", true, false],
   ["Suporte humano após a entrega", true, false],
@@ -354,7 +354,7 @@ function Differentials() {
 const steps = [
   ["01", "Conversa no WhatsApp", "Sem compromisso. Entendemos seu negócio, seus objetivos e tiramos suas dúvidas."],
   ["02", "Orçamento personalizado", "Enviamos uma proposta clara, com escopo e prazo. Você decide com tranquilidade."],
-  ["03", "Sinal e produção", "Após o sinal, em até 2 dias entregamos o primeiro modelo do seu site para revisão."],
+  ["03", "Sinal e produção", "Após o sinal, em até 3 dias entregamos o primeiro modelo do seu site para revisão."],
   ["04", "Ajustes e lançamento", "Aplicamos suas observações, lançamos o site no ar e você conclui o pagamento."],
 ] as const;
 
@@ -416,7 +416,7 @@ function Testimonials() {
             </div>
             {t.url && (
               <a href={t.url} target="_blank" rel="noopener noreferrer"
-                 className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-[var(--brand-blue)]/30 bg-[var(--brand-blue)]/5 px-4 py-2 text-sm font-semibold text-[var(--brand-blue)] transition hover:bg-[var(--brand-blue)]/10">
+                className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-[var(--brand-blue)]/30 bg-[var(--brand-blue)]/5 px-4 py-2 text-sm font-semibold text-[var(--brand-blue)] transition hover:bg-[var(--brand-blue)]/10">
                 Visitar site <ExternalLink className="h-4 w-4" />
               </a>
             )}
@@ -424,17 +424,17 @@ function Testimonials() {
 
           <div className="mt-10 flex items-center justify-center gap-4">
             <button onClick={() => go(-1)} aria-label="Depoimento anterior"
-                    className="grid h-10 w-10 place-items-center rounded-full border border-border hover:bg-muted">
+              className="grid h-10 w-10 place-items-center rounded-full border border-border hover:bg-muted">
               <ChevronLeft className="h-5 w-5" />
             </button>
             <div className="flex gap-2">
               {testimonials.map((_, idx) => (
                 <button key={idx} onClick={() => setI(idx)} aria-label={`Depoimento ${idx + 1}`}
-                        className={`h-1.5 rounded-full transition-all ${i === idx ? "w-8 bg-[var(--brand-blue)]" : "w-4 bg-muted"}`} />
+                  className={`h-1.5 rounded-full transition-all ${i === idx ? "w-8 bg-[var(--brand-blue)]" : "w-4 bg-muted"}`} />
               ))}
             </div>
             <button onClick={() => go(1)} aria-label="Próximo depoimento"
-                    className="grid h-10 w-10 place-items-center rounded-full border border-border hover:bg-muted">
+              className="grid h-10 w-10 place-items-center rounded-full border border-border hover:bg-muted">
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>
@@ -460,13 +460,13 @@ function FinalCTA() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a href={waLink()} target="_blank" rel="noopener noreferrer"
-             className="group inline-flex items-center gap-3 rounded-xl bg-[var(--brand-blue)] px-8 py-5 text-base font-bold text-white shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
+            className="group inline-flex items-center gap-3 rounded-xl bg-[var(--brand-blue)] px-8 py-5 text-base font-bold text-white shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
             <MessageCircle className="h-5 w-5" />
             Falar com Especialista
             <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
           </a>
           <a href={`tel:+55${WHATSAPP_NUM}`}
-             className="text-sm font-semibold text-white/80 hover:text-white">
+            className="text-sm font-semibold text-white/80 hover:text-white">
             ou ligue: {WHATSAPP_DISPLAY}
           </a>
         </div>
@@ -485,7 +485,7 @@ function Footer() {
     <footer className="border-t border-border bg-background py-14">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-3">
         <div>
-          <img src={zelozLogo.url} alt="Zeloz Devs" className="h-10 w-auto" />
+          <img src={zelozLogo} alt="Zeloz Devs" className="h-10 w-auto" />
           <p className="mt-4 text-sm text-muted-foreground">
             Sites institucionais de alta performance para profissionais liberais e pequenos negócios.
           </p>
@@ -506,7 +506,7 @@ function Footer() {
             Segunda a Sexta, das 9h às 19h
           </p>
           <a href={waLink("Olá! Gostaria de solicitar um orçamento.")} target="_blank" rel="noopener noreferrer"
-             className="mt-6 inline-flex rounded-lg bg-[var(--brand-blue)] px-5 py-2.5 text-sm font-semibold text-white">
+            className="mt-6 inline-flex rounded-lg bg-[var(--brand-blue)] px-5 py-2.5 text-sm font-semibold text-white">
             Solicitar Orçamento
           </a>
         </div>
@@ -522,9 +522,9 @@ function Footer() {
 function WhatsAppFloat() {
   return (
     <a href={waLink()} target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp"
-       className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-5px_rgba(37,211,102,0.6)] ring-4 ring-[#25D366]/20 animate-float hover:scale-110 transition-transform">
+      className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-5px_rgba(37,211,102,0.6)] ring-4 ring-[#25D366]/20 animate-float hover:scale-110 transition-transform">
       <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor" aria-hidden="true">
-        <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.519 5.276l-.999 3.648 3.969-1.623zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
+        <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.519 5.276l-.999 3.648 3.969-1.623zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
       </svg>
     </a>
   );
