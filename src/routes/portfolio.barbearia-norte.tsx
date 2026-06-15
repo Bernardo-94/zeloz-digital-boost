@@ -46,8 +46,8 @@ const config: DemoConfig = {
     { src: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=900&q=80&auto=format&fit=crop", alt: "Corte" },
     { src: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=900&q=80&auto=format&fit=crop", alt: "Barba" },
     { src: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=900&q=80&auto=format&fit=crop", alt: "Ambiente" },
-    { src: "https://images.unsplash.com/photo-1521490683765-79d3f6f3c1ad?w=900&q=80&auto=format&fit=crop", alt: "Cadeira" },
-    { src: "https://images.unsplash.com/photo-1593702288056-f173cfbd2acd?w=900&q=80&auto=format&fit=crop", alt: "Detalhe" },
+    { src: "https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?w=900&q=80&auto=format&fit=crop", alt: "Cadeira" },
+    { src: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?w=900&q=80&auto=format&fit=crop", alt: "Detalhe" },
   ],
   testimonials: [
     { name: "Lucas P.", role: "Cliente há 4 anos", quote: "Melhor barbearia do Méier. Atendimento impecável e o corte fica perfeito toda vez.", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80&auto=format&fit=crop" },
