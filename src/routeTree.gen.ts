@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortfolioRafaelLimaRouteImport } from './routes/portfolio.rafael-lima'
+import { Route as PortfolioMarcelaTavaresRouteImport } from './routes/portfolio.marcela-tavares'
+import { Route as PortfolioDraCamilaSouzaRouteImport } from './routes/portfolio.dra-camila-souza'
+import { Route as PortfolioBarbeariaNorteRouteImport } from './routes/portfolio.barbearia-norte'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioRafaelLimaRoute = PortfolioRafaelLimaRouteImport.update({
+  id: '/portfolio/rafael-lima',
+  path: '/portfolio/rafael-lima',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioMarcelaTavaresRoute = PortfolioMarcelaTavaresRouteImport.update({
+  id: '/portfolio/marcela-tavares',
+  path: '/portfolio/marcela-tavares',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioDraCamilaSouzaRoute = PortfolioDraCamilaSouzaRouteImport.update({
+  id: '/portfolio/dra-camila-souza',
+  path: '/portfolio/dra-camila-souza',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioBarbeariaNorteRoute = PortfolioBarbeariaNorteRouteImport.update({
+  id: '/portfolio/barbearia-norte',
+  path: '/portfolio/barbearia-norte',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/portfolio/barbearia-norte': typeof PortfolioBarbeariaNorteRoute
+  '/portfolio/dra-camila-souza': typeof PortfolioDraCamilaSouzaRoute
+  '/portfolio/marcela-tavares': typeof PortfolioMarcelaTavaresRoute
+  '/portfolio/rafael-lima': typeof PortfolioRafaelLimaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/portfolio/barbearia-norte': typeof PortfolioBarbeariaNorteRoute
+  '/portfolio/dra-camila-souza': typeof PortfolioDraCamilaSouzaRoute
+  '/portfolio/marcela-tavares': typeof PortfolioMarcelaTavaresRoute
+  '/portfolio/rafael-lima': typeof PortfolioRafaelLimaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/portfolio/barbearia-norte': typeof PortfolioBarbeariaNorteRoute
+  '/portfolio/dra-camila-souza': typeof PortfolioDraCamilaSouzaRoute
+  '/portfolio/marcela-tavares': typeof PortfolioMarcelaTavaresRoute
+  '/portfolio/rafael-lima': typeof PortfolioRafaelLimaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/portfolio/barbearia-norte'
+    | '/portfolio/dra-camila-souza'
+    | '/portfolio/marcela-tavares'
+    | '/portfolio/rafael-lima'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/portfolio/barbearia-norte'
+    | '/portfolio/dra-camila-souza'
+    | '/portfolio/marcela-tavares'
+    | '/portfolio/rafael-lima'
+  id:
+    | '__root__'
+    | '/'
+    | '/portfolio/barbearia-norte'
+    | '/portfolio/dra-camila-souza'
+    | '/portfolio/marcela-tavares'
+    | '/portfolio/rafael-lima'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PortfolioBarbeariaNorteRoute: typeof PortfolioBarbeariaNorteRoute
+  PortfolioDraCamilaSouzaRoute: typeof PortfolioDraCamilaSouzaRoute
+  PortfolioMarcelaTavaresRoute: typeof PortfolioMarcelaTavaresRoute
+  PortfolioRafaelLimaRoute: typeof PortfolioRafaelLimaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +104,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/rafael-lima': {
+      id: '/portfolio/rafael-lima'
+      path: '/portfolio/rafael-lima'
+      fullPath: '/portfolio/rafael-lima'
+      preLoaderRoute: typeof PortfolioRafaelLimaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/marcela-tavares': {
+      id: '/portfolio/marcela-tavares'
+      path: '/portfolio/marcela-tavares'
+      fullPath: '/portfolio/marcela-tavares'
+      preLoaderRoute: typeof PortfolioMarcelaTavaresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/dra-camila-souza': {
+      id: '/portfolio/dra-camila-souza'
+      path: '/portfolio/dra-camila-souza'
+      fullPath: '/portfolio/dra-camila-souza'
+      preLoaderRoute: typeof PortfolioDraCamilaSouzaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/barbearia-norte': {
+      id: '/portfolio/barbearia-norte'
+      path: '/portfolio/barbearia-norte'
+      fullPath: '/portfolio/barbearia-norte'
+      preLoaderRoute: typeof PortfolioBarbeariaNorteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PortfolioBarbeariaNorteRoute: PortfolioBarbeariaNorteRoute,
+  PortfolioDraCamilaSouzaRoute: PortfolioDraCamilaSouzaRoute,
+  PortfolioMarcelaTavaresRoute: PortfolioMarcelaTavaresRoute,
+  PortfolioRafaelLimaRoute: PortfolioRafaelLimaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
