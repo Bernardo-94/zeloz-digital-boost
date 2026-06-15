@@ -382,10 +382,10 @@ function Process() {
 
 /* ---------------- Testimonials ---------------- */
 const testimonials = [
-  { name: "Dra. Camila Souza", role: "Dermatologista", text: "Em duas semanas após o lançamento meus agendamentos online dobraram. Recebi diversos elogios pela apresentação profissional do site.", url: "#" },
-  { name: "Rafael Lima", role: "Advogado Tributarista", text: "O atendimento foi consultivo do início ao fim. Sentia que estavam realmente preocupados com meu posicionamento — não só em entregar um site genérico.", url: "#" },
-  { name: "Pedro Almeida", role: "Proprietário, Barbearia Norte", text: "Investimento justo e retorno imediato. Hoje meus clientes me encontram pelo Google e marcam direto pelo WhatsApp.", url: "#" },
-  { name: "Marcela Tavares", role: "Contadora", text: "Eu tinha receio da complexidade. A Zeloz cuidou de tudo, eu só precisei aprovar. Resultado: autoridade na cidade e novos contatos toda semana.", url: "#" },
+  { name: "Dra. Camila Souza", role: "Dermatologista", text: "Em duas semanas após o lançamento meus agendamentos online dobraram. Recebi diversos elogios pela apresentação profissional do site.", url: "/portfolio/dra-camila-souza" },
+  { name: "Rafael Lima", role: "Advogado Tributarista", text: "O atendimento foi consultivo do início ao fim. Sentia que estavam realmente preocupados com meu posicionamento — não só em entregar um site genérico.", url: "/portfolio/rafael-lima" },
+  { name: "Pedro Almeida", role: "Proprietário, Barbearia Norte", text: "Investimento justo e retorno imediato. Hoje meus clientes me encontram pelo Google e marcam direto pelo WhatsApp.", url: "/portfolio/barbearia-norte" },
+  { name: "Marcela Tavares", role: "Contadora", text: "Eu tinha receio da complexidade. A Zeloz cuidou de tudo, eu só precisei aprovar. Resultado: autoridade na cidade e novos contatos toda semana.", url: "/portfolio/marcela-tavares" },
 ];
 
 function Testimonials() {
