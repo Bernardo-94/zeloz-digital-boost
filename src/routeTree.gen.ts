@@ -10,33 +10,57 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortfolioRafaelLimaRouteImport } from './routes/portfolio.rafael-lima'
+import { Route as PortfolioDraCamilaSouzaRouteImport } from './routes/portfolio.dra-camila-souza'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioRafaelLimaRoute = PortfolioRafaelLimaRouteImport.update({
+  id: '/portfolio/rafael-lima',
+  path: '/portfolio/rafael-lima',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioDraCamilaSouzaRoute = PortfolioDraCamilaSouzaRouteImport.update({
+  id: '/portfolio/dra-camila-souza',
+  path: '/portfolio/dra-camila-souza',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/portfolio/dra-camila-souza': typeof PortfolioDraCamilaSouzaRoute
+  '/portfolio/rafael-lima': typeof PortfolioRafaelLimaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/portfolio/dra-camila-souza': typeof PortfolioDraCamilaSouzaRoute
+  '/portfolio/rafael-lima': typeof PortfolioRafaelLimaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/portfolio/dra-camila-souza': typeof PortfolioDraCamilaSouzaRoute
+  '/portfolio/rafael-lima': typeof PortfolioRafaelLimaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/portfolio/dra-camila-souza' | '/portfolio/rafael-lima'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/portfolio/dra-camila-souza' | '/portfolio/rafael-lima'
+  id:
+    | '__root__'
+    | '/'
+    | '/portfolio/dra-camila-souza'
+    | '/portfolio/rafael-lima'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PortfolioDraCamilaSouzaRoute: typeof PortfolioDraCamilaSouzaRoute
+  PortfolioRafaelLimaRoute: typeof PortfolioRafaelLimaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,12 +72,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/rafael-lima': {
+      id: '/portfolio/rafael-lima'
+      path: '/portfolio/rafael-lima'
+      fullPath: '/portfolio/rafael-lima'
+      preLoaderRoute: typeof PortfolioRafaelLimaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/dra-camila-souza': {
+      id: '/portfolio/dra-camila-souza'
+      path: '/portfolio/dra-camila-souza'
+      fullPath: '/portfolio/dra-camila-souza'
+      preLoaderRoute: typeof PortfolioDraCamilaSouzaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PortfolioDraCamilaSouzaRoute: PortfolioDraCamilaSouzaRoute,
+  PortfolioRafaelLimaRoute: PortfolioRafaelLimaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
