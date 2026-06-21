@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { DemoSite, type DemoConfig } from "@/components/DemoSite";
+import dermatsImg from "@/assets/dermats.jpg";
 
 const config: DemoConfig = {
   brand: "Dra. Camila Souza",
@@ -51,7 +52,7 @@ const config: DemoConfig = {
     { src: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=80&auto=format&fit=crop", alt: "Consultório" },
     { src: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=900&q=80&auto=format&fit=crop", alt: "Recepção" },
     { src: "https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=900&q=80&auto=format&fit=crop", alt: "Procedimento" },
-    { src: "https://images.unsplash.com/photo-1612531822918-d0d18bda7c7e?w=900&q=80&auto=format&fit=crop", alt: "Skincare" },
+    { src: dermatsImg, alt: "Skincare" },
     { src: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80&auto=format&fit=crop", alt: "Spa" },
     { src: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=900&q=80&auto=format&fit=crop", alt: "Tratamento facial" },
   ],

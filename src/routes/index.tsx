@@ -8,8 +8,12 @@ import {
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
-import teamImg from "@/assets/team.jpg";
+import teamImg from "@/assets/people-working.jpg";
 import zelozLogo from "@/assets/width_1209.png";
+import dermatoImg from "@/assets/dermato.jpg";
+import advImg from "@/assets/adv.jpg";
+import barberImg from "@/assets/barber.jpg";
+import contadoraImg from "@/assets/contadora.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,8 +27,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const WHATSAPP_NUM = "5521979285677";
-const WHATSAPP_DISPLAY = "(21) 97928-5677";
+const WHATSAPP_NUM = "5521974363359";
+const WHATSAPP_DISPLAY = "(21) 97436-3359";
 const waLink = (msg = "Olá! Vim pelo site e gostaria de falar com um especialista.") =>
   `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`;
 
@@ -152,7 +156,7 @@ function Hero() {
               Falar com Especialista
               <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
             </a>
-            <a href="#servicos"
+            <a href="#depoimentos"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-7 py-4 text-base font-semibold text-foreground backdrop-blur transition hover:bg-card">
               Ver Projetos
             </a>
@@ -382,10 +386,10 @@ function Process() {
 
 /* ---------------- Testimonials ---------------- */
 const testimonials = [
-  { name: "Dra. Camila Souza", role: "Dermatologista", text: "Em duas semanas após o lançamento meus agendamentos online dobraram. Recebi diversos elogios pela apresentação profissional do site.", url: "/portfolio/dra-camila-souza" },
-  { name: "Rafael Lima", role: "Advogado Tributarista", text: "O atendimento foi consultivo do início ao fim. Sentia que estavam realmente preocupados com meu posicionamento — não só em entregar um site genérico.", url: "/portfolio/rafael-lima" },
-  { name: "Pedro Almeida", role: "Proprietário, Barbearia Norte", text: "Investimento justo e retorno imediato. Hoje meus clientes me encontram pelo Google e marcam direto pelo WhatsApp.", url: "/portfolio/barbearia-norte" },
-  { name: "Marcela Tavares", role: "Contadora", text: "Eu tinha receio da complexidade. A Zeloz cuidou de tudo, eu só precisei aprovar. Resultado: autoridade na cidade e novos contatos toda semana.", url: "/portfolio/marcela-tavares" },
+  { name: "Dra. Camila Souza", role: "Dermatologista", text: "Em duas semanas após o lançamento meus agendamentos online dobraram. Recebi diversos elogios pela apresentação profissional do site.", url: "/portfolio/dra-camila-souza", image: dermatoImg },
+  { name: "Rafael Lima", role: "Advogado Tributarista", text: "O atendimento foi consultivo do início ao fim. Sentia que estavam realmente preocupados com meu posicionamento — não só em entregar um site genérico.", url: "/portfolio/rafael-lima", image: advImg },
+  { name: "Pedro Almeida", role: "Proprietário, Barbearia Norte", text: "Investimento justo e retorno imediato. Hoje meus clientes me encontram pelo Google e marcam direto pelo WhatsApp.", url: "/portfolio/barbearia-norte", image: barberImg },
+  { name: "Marcela Tavares", role: "Contadora", text: "Eu tinha receio da complexidade. A Zeloz cuidou de tudo, eu só precisei aprovar. Resultado: autoridade na cidade e novos contatos toda semana.", url: "/portfolio/marcela-tavares", image: contadoraImg },
 ];
 
 function Testimonials() {
@@ -404,9 +408,13 @@ function Testimonials() {
             "{t.text}"
           </p>
           <div className="mt-8 flex flex-col items-center gap-3">
-            <div className="grid h-14 w-14 place-items-center rounded-full bg-[var(--brand-blue)] text-lg font-bold text-white">
-              {t.name.split(" ").map(w => w[0]).slice(0, 2).join("")}
-            </div>
+            {t.image ? (
+              <img src={t.image} alt={t.name} className="h-14 w-14 rounded-full object-cover shadow-sm" />
+            ) : (
+              <div className="grid h-14 w-14 place-items-center rounded-full bg-[var(--brand-blue)] text-lg font-bold text-white">
+                {t.name.split(" ").map(w => w[0]).slice(0, 2).join("")}
+              </div>
+            )}
             <div>
               <div className="font-bold">{t.name}</div>
               <div className="text-sm text-muted-foreground">{t.role}</div>
@@ -495,7 +503,7 @@ function Footer() {
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-[var(--brand-blue)]" /> {WHATSAPP_DISPLAY}</li>
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-[var(--brand-blue)]" /> contato@zeloz.online</li>
-            <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-[var(--brand-blue)]" /> @ZelozDevs</li>
+            <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-[var(--brand-blue)]" /> @zeloz.devs</li>
             <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-[var(--brand-blue)]" /> CEP 25911-279</li>
           </ul>
         </div>
