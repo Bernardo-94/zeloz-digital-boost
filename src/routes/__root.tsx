@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import faviconImg from "@/assets/favzeloz.jpg";
 
 function NotFoundComponent() {
   return (
@@ -87,6 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@ZelozDevs" },
     ],
     links: [
+      { rel: "icon", type: "image/jpeg", href: faviconImg },
       {
         rel: "stylesheet",
         href: appCss,
