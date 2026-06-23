@@ -1,8 +1,8 @@
-version: '3.8'
-
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: site-institucional
     restart: always
     ports:

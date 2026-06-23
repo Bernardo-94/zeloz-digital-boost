@@ -1,5 +1,5 @@
 # Dockerfile
-FROM node:18-alpine as build
+FROM node:22-alpine as build
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalar dependências
-RUN npm ci --only=production
+RUN npm ci 
 
 # Copiar o resto do código
 COPY . .
