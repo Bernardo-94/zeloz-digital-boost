@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: site-institucional
+    restart: always
+    ports:
+      - "8080:80"  # Mapeia porta 8080 da VPS para porta 80 do container
+    volumes:
+      - ./logs:/var/log/nginx  # Opcional: logs persistentes
+    environment:
+      - NODE_ENV=production
