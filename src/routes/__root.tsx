@@ -80,6 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Zeloz Devs — Sites Institucionais para Profissionais Liberais" },
       { name: "description", content: "Transformamos sua invisibilidade digital em autoridade e novos agendamentos reais. Sites profissionais de alta performance." },
+      { name: "google-site-verification", content: "8NiYGLoaWzNSNAkpqjQs6L2UDPNdcCqwLmJme3t4im0" },
       { name: "author", content: "Zeloz Devs" },
       { property: "og:title", content: "Zeloz Devs — Autoridade Digital para Profissionais" },
       { property: "og:description", content: "Sites institucionais focados em conversão e autoridade para profissionais liberais e pequenos negócios." },
